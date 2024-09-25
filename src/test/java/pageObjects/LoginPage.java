@@ -19,6 +19,9 @@ public class LoginPage extends BasePage {
 
 	@FindBy(xpath = "//button[@id='submit']")
 	WebElement btnSubmit;
+	
+	@FindBy(xpath="//img[@alt='Practice Test Automation']")
+			WebElement logo;
 
 
 	public void setUserName(String email) {
@@ -31,6 +34,18 @@ public class LoginPage extends BasePage {
 
 	public void clickSubmitButton() {
 		btnSubmit.click();
+	}
+	
+	public boolean checkLogo() {
+		
+		boolean isDisplayed=logo.isDisplayed();
+		
+		if(!isDisplayed)
+		{
+			System.out.println("NoSuchElementFound");
+		}
+		
+		return isDisplayed;
 	}
 
 }
