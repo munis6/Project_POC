@@ -32,6 +32,7 @@ public class BaseClass {
 		
 		if(executionEnv.equalsIgnoreCase("remote"))
 		{
+			System.out.println("Entered Remote server execution");
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			
 			//os
@@ -41,9 +42,11 @@ public class BaseClass {
 	            break;
 	        case "mac":
 	            capabilities.setPlatform(Platform.MAC);
+	            System.out.println("Selected Mac Machine");
 	            break;
 	        case "linux":
 	            capabilities.setPlatform(Platform.LINUX);
+	            System.out.println("Running on Remote Linux machine");
 	            break;
 	        default:
 	            System.out.println("No matching OS");
@@ -51,22 +54,27 @@ public class BaseClass {
 	       }
 			 
 			//browser
-			 switch (browser) {
+			 switch (browser.toLowerCase()) {
 	        case "chrome":
 	            capabilities.setBrowserName("chrome");
+	            capabilities.setBrowserName("chrome");
+	            System.out.println("Remote Chrome driver initiated");
 	            break;
 	        case "edge":
 	            capabilities.setBrowserName("MicrosoftEdge");
 	            break;
 	        case "firefox":
 	            capabilities.setBrowserName("firefox");
+	            System.out.println("Remote Firefox driver initiated");
 	            break;
 	        default:
 	            System.out.println("No matching browser");
 	            return null;
 	        }
 	      
-	       driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+	       //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+			 
+			 driver=new RemoteWebDriver(new URL("http://localhost:4444"), capabilities);
 			
 		}
 		else if(executionEnv.equalsIgnoreCase("local"))
