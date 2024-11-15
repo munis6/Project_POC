@@ -22,6 +22,7 @@ public class Hooks {
 	public void setup() throws IOException {
 		
 		driver=BaseClass.initializeBrowser();
+		System.out.println(driver.getClass().getSimpleName());
 		pro=BaseClass.getProperties();
 		driver.get(pro.getProperty("appURL"));
 		driver.manage().window().maximize();

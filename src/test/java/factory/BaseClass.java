@@ -46,7 +46,7 @@ public class BaseClass {
 	            break;
 	        case "linux":
 	            capabilities.setPlatform(Platform.LINUX);
-	            System.out.println("Running on Remote Linux machine");
+	            System.out.println("picked up Remote Linux machine");
 	            break;
 	        default:
 	            System.out.println("No matching OS");
@@ -57,8 +57,8 @@ public class BaseClass {
 			 switch (browser.toLowerCase()) {
 	        case "chrome":
 	            capabilities.setBrowserName("chrome");
-	            capabilities.setBrowserName("chrome");
-	            System.out.println("Remote Chrome driver initiated");
+	            
+	            System.out.println("Remote Linux machine - Chrome driver initiated");
 	            break;
 	        case "edge":
 	            capabilities.setBrowserName("MicrosoftEdge");
@@ -72,9 +72,9 @@ public class BaseClass {
 	            return null;
 	        }
 	      
-	       //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+	       driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
 			 
-			 driver=new RemoteWebDriver(new URL("http://localhost:4444"), capabilities);
+			// driver=new RemoteWebDriver(new URL("http://localhost:4444"), capabilities);
 			
 		}
 		else if(executionEnv.equalsIgnoreCase("local"))
